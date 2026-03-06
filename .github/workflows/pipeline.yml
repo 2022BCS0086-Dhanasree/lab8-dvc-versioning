@@ -1,7 +1,7 @@
 name: ML Pipeline
 
-on: 
-    push:
+on:
+  push:
 
 jobs:
   train:
@@ -19,12 +19,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install pandas scikit-learn
 
-    - name: Pull dataset
-      run: dvc pull
-
-    - name: Train model
+    - name: Train Model
       run: python src/train.py
 
     - name: Upload metrics
